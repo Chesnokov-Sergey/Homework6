@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        // Домашяя работа
+        // Домашняя работа
         // Задача 1
         System.out.println("Задача 1");
         String firstName = "Ivan";
