@@ -12,8 +12,7 @@ public class Main {
         // Задача 2
         System.out.println("Задача 2");
         defineClassDevice(0, 2023);
-        defineClassDevice(1, 2025);
-        defineClassDevice(3, 2022);
+        defineClassDevice(1, 2024);
 
         // Задача 3
         System.out.println("Задача 3");
@@ -30,17 +29,23 @@ public class Main {
     }
 
     public static void defineClassDevice(int clientOS, int year) {
-        int currentYear = LocalDate.now().getYear();
-        if (clientOS == 0 && year < currentYear) {
-            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (clientOS == 0 && year > currentYear) {
-            System.out.println("Установите обычную версию приложения для iOS по ссылке");
-        } else if (clientOS == 1 && year < currentYear) {
-            System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        } else if (clientOS == 1 && year > currentYear) {
-            System.out.println("Установите обычную версию приложения для Android по ссылке");
-        } else {
-            System.out.println("Не известная версия ОС");
+        String clientOSVersion;
+        switch (clientOS) {
+            case 0:
+                clientOSVersion = "iOS";
+                break;
+            case 1:
+                clientOSVersion = "Android";
+                break;
+            default:
+                clientOSVersion = "Не известная версия ОС";
+        }
+        int currentYear = LocalDate.now().getYear();{
+            if (year != currentYear) {
+                System.out.println("Для " + clientOSVersion + " установите облегченную версию приложения по ссылке");
+            } else {
+                System.out.println("Для " + clientOSVersion + " установите обычную версию приложения по ссылке");
+            }
         }
     }
 
